@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div className="App">
       <div clasName="container">
-     <Weather />
+     <Weather defaultCity="Warsaw"/>
      <footer>This app was coded by{" "}< a href="https://www.linkedin.com/in/emilia-kuci%C4%99ba-a497761ba/" target="_blank" rel="noreferrer">Emilia Kucięba</a>  and it's open-soursed {" "} <a href ="https://github.com/Secundos/react-weather-app" target="_blank" rel="noreferrer">on GitHub </a>
       </footer> 
     </div>
