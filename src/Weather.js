@@ -1,12 +1,11 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./Weather.css";
+
 import FormatedDate from "./FormatedDate";
 
 export default function Weather(props){
-   
-    
-    const[weatherSpecyfic,setWeatherSpecyfic]=useState({ready:false});
+   const[weatherSpecyfic,setWeatherSpecyfic]=useState({ready:false});
     function handleResponse(response){
         console.log(response.data);
         setWeatherSpecyfic({
@@ -30,8 +29,7 @@ if (weatherSpecyfic.ready){return (<div className="Weather">
            <div className="col-3"> <input type="submit" value="Submit" className="btn btn-primary w-100"/>
             <input type="submit" value="Back to current" className="btn btn-success w-100"/></div>
        </div> </form>
-       
-        <h1>Warsaw</h1>
+        <h1>{weatherSpecyfic.city}</h1>
         <ul>
             <li><FormatedDate date= {weatherSpecyfic.date}/> </li>
             <li className="text-capitalize"> {weatherSpecyfic.description}</li>
@@ -53,7 +51,11 @@ if (weatherSpecyfic.ready){return (<div className="Weather">
                 </ul>
             </div>
         </div>
-    </div>)}
+    </div>
+   );
+}
+    
+    
     else {
 
     const apiKey="11b09ae39e1971203074e458432047c9";
