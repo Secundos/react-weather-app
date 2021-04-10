@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./Weather.css";
+import FormatedDate from "./FormatedDate";
 
 export default function Weather(props){
    
     
     const[weatherSpecyfic,setWeatherSpecyfic]=useState({ready:false});
     function handleResponse(response){
-        
+        console.log(response.data);
         setWeatherSpecyfic({
             ready:true,
             description: response.data.weather[0].description,
@@ -16,8 +17,8 @@ export default function Weather(props){
             city: response.data.name,
             humidity: response.data.main.humidity,
             pressure: response.data.main.pressure,
-            icon: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
-            data:"Monday 10:30",
+            icon: response.data.weather[0].icon,
+            date:new Date(response.data.dt * 1000),
         })
         
     }
@@ -32,7 +33,7 @@ if (weatherSpecyfic.ready){return (<div className="Weather">
        
         <h1>Warsaw</h1>
         <ul>
-            <li>{weatherSpecyfic.data} </li>
+            <li><FormatedDate date= {weatherSpecyfic.date}/> </li>
             <li className="text-capitalize"> {weatherSpecyfic.description}</li>
         </ul>
         <div className="row mt-3">
