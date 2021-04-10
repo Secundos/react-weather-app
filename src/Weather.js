@@ -1,13 +1,14 @@
 import React, {useState} from "react";
+import FormatedDate from "./FormatedDate";
 import axios from "axios";
 import "./Weather.css";
 
-import FormatedDate from "./FormatedDate";
+
 
 export default function Weather(props){
-   const[weatherSpecyfic,setWeatherSpecyfic]=useState({ready:false});
+   const [weatherSpecyfic, setWeatherSpecyfic] = useState({ready:false});
     function handleResponse(response){
-        console.log(response.data);
+        
         setWeatherSpecyfic({
             ready:true,
             description: response.data.weather[0].description,
