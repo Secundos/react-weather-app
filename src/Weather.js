@@ -8,7 +8,6 @@ import "./Weather.css";
 export default function Weather(props){
    const [weatherSpecyfic, setWeatherSpecyfic] = useState({ready:false});
    const [city, setCity]= useState(props.defaultCity);
-   const[location, setLocation]=useState({})
     function handleResponse(response){
         
         setWeatherSpecyfic({
@@ -19,7 +18,7 @@ export default function Weather(props){
             city: response.data.name,
             humidity: response.data.main.humidity,
             pressure: response.data.main.pressure,
-            icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+            icon: response.data.weather[0].icon,
             date:new Date(response.data.dt * 1000),
         });
     }
