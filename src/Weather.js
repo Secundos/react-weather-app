@@ -12,6 +12,7 @@ export default function Weather(props){
     function handleResponse(response){
         
         setWeatherSpecyfic({
+            coordinates:response.data.coord,
             ready:true,
             description: response.data.weather[0].description,
             temperature: Math.round(response.data.main.temp),
@@ -46,7 +47,7 @@ navigator.geolocation.getCurrentPosition(currentLocationWeather);
 function currentLocationWeather(position){
      let lat = position.coords.latitude;
     let lon= position.coords.longitude;
-const apiKey="11b09ae39e1971203074e458432047c9";
+    const apiKey="11b09ae39e1971203074e458432047c9";
 let apiUrl= `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
     axios.get(apiUrl).then(handleResponse);
 
@@ -62,7 +63,7 @@ if (weatherSpecyfic.ready){return (
             <input type="submit" value="Back to current" className="btn btn-success w-100" onClick={showPosition}/></div>
        </div> </form>
        <WeatherInfo data={weatherSpecyfic}/>
-        <WeatherForecast />
+        <WeatherForecast coordinates={weatherSpecyfic.coordinates}/>
     </div>
    );
 }
