@@ -63,7 +63,7 @@ if (weatherSpecyfic.ready){return (
             <input type="submit" value="Back to current" className="btn btn-success w-100" onClick={showPosition}/></div>
        </div> </form>
        <WeatherInfo data={weatherSpecyfic}/>
-        <WeatherForecast coordinates={weatherSpecyfic.coordinates}/>
+       <WeatherForecast coordinates={weatherSpecyfic.coordinates}/>
     </div>
    );
 }
