@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -61,7 +62,7 @@ if (weatherSpecyfic.ready){return (
             <input type="submit" value="Back to current" className="btn btn-success w-100" onClick={showPosition}/></div>
        </div> </form>
        <WeatherInfo data={weatherSpecyfic}/>
-        
+        <WeatherForecast />
     </div>
    );
 }
