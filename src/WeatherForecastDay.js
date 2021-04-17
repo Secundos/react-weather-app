@@ -20,7 +20,7 @@ function minTemperature(){
     return(
         <div className="WeatherForecastDay">
            <div className="WeatherForecast-day">{day()}</div>
-           <WeatherIcon code={props.data.weather[0].icon} size={52} animate={false}/>
+           <WeatherIcon code={props.data.weather[0].icon} size={52} animate={true}/>
            <div className="WeatherForecast-temperatures">
              <span className="WeatherForecast-temp-max">{maxTemperature()}</span>
              <span className="WeatherForecast-temp-min">{minTemperature()}</span>
